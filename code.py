@@ -1,3 +1,4 @@
+   
 class Budget:
     def __init__(self, name, balance):
         self.name = name
@@ -41,33 +42,40 @@ class Expense(Budget):
 
 
 def main():
-    # Create an expense budget
-    expense_budget = Expense("Expense", int(input("Enter your budget:")))
+    try:
+        # Create an expense budget
+        expense_budget = Expense("Expense", int(input("Enter your budget:")))
 
-    # Deposit money into the expense budget
-    if expense_budget.deposit(int(input("Enter amount deposited:")), "Money deposited"):
-        print("Deposit successful")
-    else:
-        print("Invalid deposit amount")
+        # Deposit money into the expense budget
+        if expense_budget.deposit(int(input("Enter amount deposited:")), "Money deposited"):
+            print("Deposit successful")
+        else:
+            print("Invalid deposit amount")
 
-    # Withdraw money from the expense budget
-    if expense_budget.withdraw(int(input("Enter amount withdrawn:")), "Money spent"):
-        print("Withdrawal successful")
-    else:
-        print("Insufficient funds or invalid withdrawal amount")
+        # Withdraw money from the expense budget
+        if expense_budget.withdraw(int(input("Enter amount withdrawn:")), "Money spent"):
+            print("Withdrawal successful")
+        else:
+            print("Insufficient funds or invalid withdrawal amount")
 
-    # Get the balance of the expense budget
-    print("Current balance:", expense_budget.get_balance())
+        # Get the balance of the expense budget
+        print("Current balance:", expense_budget.get_balance())
 
-    # Get the budget of the expense budget
-    print("Budget:", expense_budget.get_budget())
+        # Get the budget of the expense budget
+        print("Budget:", expense_budget.get_budget())
 
-    # Get the balance left in the expense budget
-    print("Balance left:", expense_budget.get_balance_left())
+        # Get the balance left in the expense budget
+        print("Balance left:", expense_budget.get_balance_left())
 
-    # Get the transactions of the expense budget
-    print("Transactions:", expense_budget.get_transactions())
+        # Get the transactions of the expense budget
+        print("Transactions:", expense_budget.get_transactions())
+
+    except:
+        print("wrong input , try again")
+        main()
 
 
 if __name__ == '__main__':
     main()
+
+# added try catch....
