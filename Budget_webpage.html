@@ -4,29 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Budget Tracker</title>
-    <link rel="stylesheet" href="budget_tracker.css">
+    <link rel="stylesheet" href="Budget_webpage.css">
 </head>
 
 <body>
-<div class= "Header">
-<h1> Budget Tracker </h1>
+<div class="Header">
+    <h1>Budgets</h1>
 </div>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="budget-tracker.html">Home</a></li>
-                <li><a href="#">Budgets</a></li>
-                <li><a href="#">Expenses</a></li>
-                <li><a href="#">Reports</a></li>
-                <li><a href="#">Settings</a></li>
-            </ul>
-        </nav>
-    </header>
+<header>
+    <nav>
+        <ul>
+            <li><a href="budget-tracker.html">Home</a></li>
+            <li><a href="Budget_webpage.html">Budgets</a></li>
+            <li><a href="Expense_webpage.html">Expenses</a></li>
+            <li><a href="Reports_webpage.html">Reports</a></li>
+        </ul>
+    </nav>
+</header>
+<div class="Header">
+
+<p> This page will compile a list of the budget you have for an activity or certain item(s). The example below shows an example of what the list will look like.</p>
+
 <ul>
-                <li>Category 1 - $500.00</li>
-                <li>Category 2 - $300.00</li>
-                <li>Category 3 - $200.00</li>
-            </ul>
-            <button>Add Budget</button>
+    <li>Grocery - $50.00</li>
+    <li>Take-Out - $30.00</li>
+    <li>Extra - $20.00</li>
+</ul>
+<p>Try compiling your own below!</p>
+
+<ul id="Budget-List">
+    <li>Budget Name - Budget Amount</li>
+</ul>
+
+<p id="output">Input Here:</p>
+
+<input type="text" id="Budget-Input" placeholder="Budget-Name">
+<input type="number" id="Budget-Amount" placeholder="Budget-Amount">
+<button id="myButton" onclick="addButtonData()">Add Input</button>
+
+<script>
+    function addButtonData() {
+        var name = document.getElementById("Budget-Input").value;
+        var amount = document.getElementById("Budget-Amount").value;
+        if (name && amount) {
+            var li = document.createElement("li");
+            li.appendChild(document.createTextNode(name + " - $" + amount + ".00"));
+            document.getElementById("Budget-List").appendChild(li);
+            document.getElementById("Budget-Input").value = ""; 
+            document.getElementById("Budget-Amount").value = ""; 
+            document.getElementById("output").innerHTML = "Added Budget";
+        } else {
+            document.getElementById("output").innerHTML = "womp womp!!";
+        }
+    }
+</script>
+</div>
+
 </body>
 </html>
