@@ -8,33 +8,46 @@
 </head>
 
 <body>
-<div class= "Header">
-<h1> Expenses </h1>
+<div class="Header">
+    <h1>Expenses</h1>
 </div>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="budget-tracker.html">Home</a></li>
-                <li><a href="Budget_webpage.html">Budgets</a></li>
-                <li><a href="Expense_webpage.html">Expenses</a></li>
-                <li><a href="#">Reports</a></li>
-                <li><a href="#">Settings</a></li>
-            </ul>
-        </nav>
-    </header>
-<ul>
-                <li>Expense 1 - $50.00</li>
-                <li>Expense 2 - $30.00</li>
-                <li>Expense 3 - $20.00</li>
-            </ul>
-            <p id="output">Input Expense Value</p>
-    <button id="myButton" onclick="addButtonData()">Click me</button>
+<header>
+    <nav>
+        <ul>
+            <li><a href="budget-tracker.html">Home</a></li>
+            <li><a href="Budget_webpage.html">Budgets</a></li>
+            <li><a href="Expense_webpage.html">Expenses</a></li>
+            <li><a href="#">Reports</a></li>
+            <li><a href="#">Settings</a></li>
+        </ul>
+    </nav>
+</header>
 
-    <script>
-        function addButtonData() {
-            document.getElementById("output").innerHTML = "Data added!";
+<ul id="expenseList">
+    <li>Expense 1 - $50.00</li>
+    <li>Expense 2 - $30.00</li>
+    <li>Expense 3 - $20.00</li>
+</ul>
+
+<p id="output">Input</p>
+
+<input type="text" id="expenseInput" placeholder="expense-amount">
+<button id="myButton" onclick="addButtonData()">Click me</button>
+
+<script>
+    function addButtonData() {
+        var input = document.getElementById("expenseInput").value;
+        if (input) {
+            var li = document.createElement("li");
+            li.appendChild(document.createTextNode(input));
+            document.getElementById("expenseList").appendChild(li);
+            document.getElementById("expenseInput").value = ""; 
+            document.getElementById("output").innerHTML = "added expense";
+        } else {
+            document.getElementById("output").innerHTML = "womp womp!!";
         }
-    </script>
+    }
+</script>
 
 </body>
 </html>
