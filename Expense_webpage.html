@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Budget Tracker</title>
-    <link rel="stylesheet" href="budget_tracker.css">
+    <link rel="stylesheet" href="Budget_webpage.css">
 </head>
 
 <body>
@@ -14,40 +14,55 @@
 <header>
     <nav>
         <ul>
-            <li><a href="budget-tracker.html">Home</a></li>
+            <li><a href="budget_tracker_main.html">Home</a></li>
             <li><a href="Budget_webpage.html">Budgets</a></li>
             <li><a href="Expense_webpage.html">Expenses</a></li>
-            <li><a href="#">Reports</a></li>
-            <li><a href="#">Settings</a></li>
         </ul>
     </nav>
 </header>
+<div class="Header">
 
-<ul id="expenseList">
-    <li>Expense 1 - $50.00</li>
-    <li>Expense 2 - $30.00</li>
-    <li>Expense 3 - $20.00</li>
+<p> This page will compile a list of all you expenses you have for any type of purchase. The example below shows what the list will look like.</p>
+
+<ul>
+    <li>Walmart - $45.60</li>
+    <li>Subway - $21.20</li>
+    <li>Sephora - $34.90</li>
+</ul>
+<p>Try compiling your own below!</p>
+
+<ul id="Expense-List">
+    <li>Expense Name - Expense Amount</li>
 </ul>
 
-<p id="output">Input</p>
+<p id="output">Input Here:</p>
 
-<input type="text" id="expenseInput" placeholder="expense-amount">
-<button id="myButton" onclick="addButtonData()">Click me</button>
+<input type="text" id="Expense-Input" placeholder="Expense-Name">
+<input type="number" id="Expense-Amount" placeholder="Expense-Amount">
+<button id="myButton" onclick="addButtonData()">Add Input</button>
 
 <script>
     function addButtonData() {
-        var input = document.getElementById("expenseInput").value;
-        if (input) {
+        var name = document.getElementById("Expense-Input").value;
+        var amount = document.getElementById("Expense-Amount").value;
+        if (name && amount) {
             var li = document.createElement("li");
-            li.appendChild(document.createTextNode(input));
-            document.getElementById("expenseList").appendChild(li);
-            document.getElementById("expenseInput").value = ""; 
-            document.getElementById("output").innerHTML = "added expense";
+	if (amount.indexOf('.') == -1){
+            li.appendChild(document.createTextNode(name + " - $" + amount + ".00"));
+}
+	else{
+	li.appendChild(document.createTextNode(name + " - $" + amount));
+}
+            document.getElementById("Expense-List").appendChild(li);
+            document.getElementById("Expense-Input").value = ""; 
+            document.getElementById("Expense-Amount").value = ""; 
+            document.getElementById("output").innerHTML = "Added Expense";
         } else {
             document.getElementById("output").innerHTML = "womp womp!!";
         }
     }
 </script>
+</div>
 
 </body>
 </html>
