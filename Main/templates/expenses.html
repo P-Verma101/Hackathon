@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Tracker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='budget_tracker.css') }}">
+</head>
+
+<body>
+<div class="Header">
+    <h1>Expenses</h1>
+</div>
+<header>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('dashboard') }}">Home</a></li>
+            <li><a href="{{ url_for('budgets') }}">Budgets</a></li>
+            <li><a href="{{ url_for('expenses') }}">Expenses</a></li>
+        </ul>
+    </nav>
+</header>
+<div class="Header">
+
+<p> This page will compile a list of all you expenses you have for any type of purchase. The example below shows what the list will look like.</p>
+
+<ul>
+    <li>Walmart - $45.60</li>
+    <li>Subway - $21.20</li>
+    <li>Sephora - $34.90</li>
+</ul>
+<p>Try compiling your own below!</p>
+
+<ul id="Expense-List">
+    <li>Expense Name - Expense Amount</li>
+</ul>
+
+<p id="output">Input Here:</p>
+
+<input type="text" id="Expense-Input" placeholder="Expense-Name">
+<input type="number" id="Expense-Amount" placeholder="Expense-Amount">
+<button id="myButton" onclick="addButtonData()">Add Input</button>
+
+<script>
+    function addButtonData() {
+        var name = document.getElementById("Expense-Input").value;
+        var amount = document.getElementById("Expense-Amount").value;
+        if (name && amount) {
+            var li = document.createElement("li");
+	if (amount.indexOf('.') == -1){
+            li.appendChild(document.createTextNode(name + " - $" + amount + ".00"));
+}
+	else{
+	li.appendChild(document.createTextNode(name + " - $" + amount));
+}
+            document.getElementById("Expense-List").appendChild(li);
+            document.getElementById("Expense-Input").value = ""; 
+            document.getElementById("Expense-Amount").value = ""; 
+            document.getElementById("output").innerHTML = "Added Expense";
+        } else {
+            document.getElementById("output").innerHTML = "womp womp!!";
+        }
+    }
+</script>
+</div>
+
+</body>
+</html>
