@@ -1,0 +1,34 @@
+body{
+background-image: url("Budget_tracker_background.jpeg");
+}
+.Header{
+background-color: #c2efc2;
+padding: 30px;
+border-radius: 10px;
+}
+h1{
+text-align: center;
+}
+header ul {
+  display: flex;
+  justify-content: center;    
+background-color: #000000;
+
+}
+
+li {
+  display: flex;
+  justify-content: center;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
